@@ -1,0 +1,114 @@
+.user {
+  display: flex;
+  padding: 0.5rem;
+  border: thick double #32a1ce;
+  margin-bottom: 1rem;
+}
+
+.tooltip {
+  position: absolute;
+  background: black;
+  color: white;
+  line-height: normal;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 90%;
+  padding: 3px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.2s;
+  &::before {
+    content: "";
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+    z-index: 1;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid transparent;
+    border-right: 5px solid black;
+  }
+}
+
+.user button {
+  width: 2rem;
+  margin: 0 10px;
+  background-color: lightcoral;
+  cursor: pointer;
+  border: 0; 
+
+  &:hover {
+    background-color: darkorange;
+  }
+    
+  &:hover .tooltip {
+    width: auto;
+    height: auto;
+    clip: initial;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.add {
+  width: 3rem;
+  height: 3rem;
+  color: var(--cultured);
+  font-size: 20px;
+}
+
+.edit {
+  width: 2rem;
+  margin: 0 10px;
+  background-color: lightcoral;
+  cursor: pointer;
+  border: 0; 
+
+  &:hover {
+    background-color: darkorange;
+  }
+    
+  &:hover .tooltip {
+    width: auto;
+    height: auto;
+    clip: initial;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  input {
+    height: 50px;
+    border-radius: 8px;
+    padding: 0 16px;
+    background: #FFF;
+    border: 1px solid var(--black-coffee);
+  }
+
+  button, input {
+    width: 20rem;
+    margin-top: 12px;
+  }
+  
+  button { 
+    margin-top: 16px;
+    margin-top: 24px;
+  }
+
+}
+
+.title {
+  text-align: center;
+  margin: 1rem;
+  font: 700 36px 'Poppins', sans-serif;
+  line-height: 42px;
+  color: var(--keeper);
+}

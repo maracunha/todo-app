@@ -1,0 +1,14 @@
+{
+  "devDependencies": {
+    "nodemon": "^2.0.13",
+    "prettier": "2.4.1",
+    "supertest": "^6.1.6"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "sequelize": "^6.6.5",
+    "sqlite3": "^5.0.2",
+    "yup": "^0.32.9"
+  }
+}

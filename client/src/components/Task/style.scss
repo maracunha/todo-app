@@ -1,0 +1,131 @@
+form {
+  select {
+    width: 20rem;
+    height: 40px;
+    border-radius: 8px;
+    padding: 0 16px;
+    background: #FFF;
+    font: 400 16px 'Poppins', sans-serif;
+    border: 1px solid var(--black-coffee);
+  }
+  textarea {
+    width: 20rem;
+    margin-top: 1rem;
+    border: 0;
+    padding: 16px;
+    border-radius: 8px;
+    background: #fefefe;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    border: 1px solid var(--black-coffee);
+    resize: vertical;
+    min-height: 130px;
+  }
+}
+
+.tasks {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  
+  div {
+    width: 80%;
+    border: 1px solid var(--black-coffee);
+    border-radius: 1em;
+    padding: 1rem;
+    margin-bottom: 12px;
+    box-shadow: 8px 8px 2px 1px rgba(0, 0, 255, .2);
+    &:hover {
+      box-shadow: 8px 8px 2px 1px rgba(0, 0, 255, .4);
+    }
+  }
+
+  span { 
+    display:block;
+    word-wrap:break-word;
+    
+    &.status {
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 400;
+      padding: 4px;
+      
+      &.todo {
+        color: var(--stale-blue);
+        border: 1px solid var(--stale-blue);
+      }
+
+      &.done {
+        color: var(--keeper);
+        border: 1px solid var(--keeper);
+      }
+    }
+  }
+}
+
+footer {
+  display: flex;
+  justify-content: flex-end;
+
+  img {
+    width: 24px;
+    height: 24px;
+  }
+
+  span {
+    margin-left: 8px;
+    color: #29292e;
+    font-weight: 500;
+    font-size: 14px;
+  }
+  
+  button {
+    margin-right: 5px;
+    background: transparent;
+    border: 0;
+    text-decoration: underline;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+
+    &:not(:disabled):hover {
+      filter: brightness(0.4);
+      
+      &.trash {
+        filter: sepia(100%) saturate(5000%) brightness(100%) contrast(100%);
+      }
+    }
+    
+    &.done {
+      filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
+    }  
+    
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+section {
+  margin: 2rem 0 1rem;
+  position: relative;
+  border: 1px solid var(--stale-blue);
+  border-radius: 1em;
+  padding: 10px;
+}
+
+h4 {
+  position: absolute;
+  color: var(--stale-blue);
+  top: 0;
+  font-size: 12px;
+  line-height: 1;
+  margin: -9px 0 0; /* half of font-size */
+  background: #fff;
+  padding: 0 3px;
+}

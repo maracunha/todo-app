@@ -1,0 +1,47 @@
+.wrapper {
+  display: flex;
+  padding: 24px;
+  justify-content: space-between;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.buttons {
+  display: flex;
+  width: 15rem;
+  justify-content: space-between;
+}
+
+a {
+  height: 50px;
+  border-radius: 8px;
+  font-weight: 500;
+  background: var(--stale-blue);
+  color: #FFF;
+  padding: 0 32px;
+  text-decoration: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  border: 0;
+
+  transition: filter 0.2s;
+}
+
+a.outlined {
+  background: #FFF;
+  border: 1px solid var(--stale-blue);
+  color: var(--stale-blue);
+}
+
+a:not(:disabled):hover {
+  filter: brightness(0.9);
+}
+
+a:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
