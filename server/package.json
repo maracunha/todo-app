@@ -1,4 +1,9 @@
 {
+  "name": "server",
+  "version": "1.0.0",
+  "private": true,
+  "author": "Renan Marangon",
+  "license": "MIT",
   "devDependencies": {
     "nodemon": "^2.0.13",
     "prettier": "2.4.1",
