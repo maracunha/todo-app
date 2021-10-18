@@ -15,5 +15,8 @@
     "sequelize": "^6.6.5",
     "sqlite3": "^5.0.2",
     "yup": "^0.32.9"
+  },
+  "scripts": {
+    "build": "babel --ignore __tests__ --out-dir dist src"
   }
 }

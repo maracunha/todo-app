@@ -21,6 +21,9 @@ Finally, the application will be available at `http://localhost:3000`
 - [ x ] style tasks more nice
 - [ x ] put on a single rep
 - [ ] deploy on a server
+- [ ] conf cors server
+- [ ] configuration eslint
+- [ ] configuration tests jest/cypress
 - [ ] modal for excludes task
 - [ ] delete a task / backend Too
 

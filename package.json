@@ -10,6 +10,8 @@
     "dev": "npm run start:dev",
     "start:dev": "scripty",
     "start:setup": "scripty",
+    "build:client": "cd client && npm run build --silent",
+    "build:server": "cd server && npm run build --silent",
     "clean": "rimraf node_modules package-lock.json ./server/node_modules ./server/package-lock.json ./client/node_modules ./client/package-lock.json",
     "setup": "npm install && npm run start:setup"
   },
