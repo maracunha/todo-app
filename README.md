@@ -20,6 +20,7 @@ Finally, the application will be available at `http://localhost:3000`
 - [ x ] select if is todo or done a task
 - [ x ] style tasks more nice
 - [ x ] put on a single rep
+- [ x ] deploy on a client
 - [ ] deploy on a server
 - [ ] conf cors server
 - [ ] configuration eslint
