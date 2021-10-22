@@ -2,9 +2,10 @@ import { useQuery } from 'react-query'
 import { Link } from 'react-router-dom'
 
 function User() {
+  const envBaseUrl = process.env.REACT_APP_API_URL
 
   const { isLoading, error, data } = useQuery('repoData', () =>
-    fetch('http://localhost:4000/api/v1/users').then(res =>
+    fetch(`${envBaseUrl}/api/v1/users`).then(res =>
       res.json()
     )
   )
@@ -16,7 +17,7 @@ function User() {
   console.log({data})
 
   function handleDelete(id) {
-    fetch(`http://localhost:4000/api/v1/users/${id}`, {
+    fetch(`${envBaseUrl}/api/v1/users/${id}`, {
       method: "DELETE",
       headers: {
         "Content-type": "application/json; charset=UTF-8"

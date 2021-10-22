@@ -10,9 +10,10 @@ import './style.scss'
 function NewTask() {
   const { register, handleSubmit } = useForm();
   const history = useHistory()
+  const envBaseUrl = process.env.REACT_APP_API_URL
 
   const { isLoading, error, data } = useQuery('repoData', () =>
-    fetch('http://localhost:4000/api/v1/users').then(res =>
+    fetch(`${envBaseUrl}/api/v1/users`).then(res =>
       res.json()
     )
   )
@@ -20,7 +21,7 @@ function NewTask() {
   const onSubmit = task => {
     console.log(task)
 
-    fetch(`http://localhost:4000/api/v1/tasks/${task.user}/new`, {
+    fetch(`${envBaseUrl}/api/v1/tasks/${task.user}/new`, {
         method: "POST",
         headers: {
           "Content-type": "application/json; charset=UTF-8"

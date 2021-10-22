@@ -5,6 +5,7 @@ import checkImg from '../../assets/check.svg';
 import deleteImg from '../../assets/delete.svg';
 
 function Task() {
+  const envBaseUrl = process.env.REACT_APP_API_URL
 
   function getUserId() {
     const hash = /\d$/.exec(window.location.href)
@@ -16,14 +17,14 @@ function Task() {
   const userId = getUserId()
 
   const { isLoading, error, data } = useQuery('repoData', () =>
-    fetch(`http://localhost:4000/api/v1/tasks/${userId}`).then(res =>
+    fetch(`${envBaseUrl}/api/v1/tasks/${userId}`).then(res =>
       res.json()
     )
   );
 
   const handleDone = (task) => {
     if (window.confirm(`Are you sure to change from ${task.state} ?`)) {
-      fetch(`http://localhost:4000/api/v1/tasks/${userId}/${task.id}`, {
+      fetch(`${envBaseUrl}/api/v1/tasks/${userId}/${task.id}`, {
         method: "PUT",
         headers: {
           "Content-type": "application/json; charset=UTF-8"
