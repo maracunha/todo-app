@@ -5,6 +5,7 @@
   "author": "Renan Marangon",
   "license": "MIT",
   "devDependencies": {
+    "@babel/core": "^7.15.8",
     "nodemon": "^2.0.13",
     "prettier": "2.4.1",
     "supertest": "^6.1.6"
@@ -17,7 +18,6 @@
     "yup": "^0.32.9"
   },
   "scripts": {
-    "build": "babel --ignore __tests__ --out-dir dist src",
     "start": "node src/index.js"
   }
 }
