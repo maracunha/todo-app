@@ -39,7 +39,7 @@ function Task() {
 
   const handleDelete = (id) => {
     if (window.confirm('Are you sure to delete ?')) {
-      console.log(id)
+      // console.log(id)
     }
   }
 
