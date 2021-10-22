@@ -17,6 +17,7 @@
     "yup": "^0.32.9"
   },
   "scripts": {
-    "build": "babel --ignore __tests__ --out-dir dist src"
+    "build": "babel --ignore __tests__ --out-dir dist src",
+    "start": "node src/index.js"
   }
 }
