@@ -7,11 +7,12 @@ import { Button } from '../Button'
 function NewUser() {
   const { register, handleSubmit } = useForm();
   const history = useHistory()
+  const envBaseUrl = process.env.REACT_APP_API_URL
   
   const onSubmit = user => {
     console.log(user)
 
-    fetch("http://localhost:4000/api/v1/users/new", {
+    fetch(`${envBaseUrl}/api/v1/users/new`, {
         method: "POST",
         headers: {
           "Content-type": "application/json; charset=UTF-8"
