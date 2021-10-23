@@ -1,21 +1,20 @@
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 
+import useApi from '../../services/api';
+import useAppStore from '../../store';
 import Button from '../Button';
 
 function NewUser() {
   const { register, handleSubmit } = useForm();
   const history = useHistory();
-  const envBaseUrl = process.env.REACT_APP_API_URL;
+  const { createNewUser } = useApi();
+  const { users, setUsers } = useAppStore();
 
   const onSubmit = (user) => {
-    fetch(`${envBaseUrl}/api/v1/users/new`, {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-      body: JSON.stringify(user),
-    }).then((res) => res.json());
+    createNewUser(user).then((newUser) => {
+      setUsers([...users, newUser.data.user]);
+    });
 
     history.push('/users');
   };

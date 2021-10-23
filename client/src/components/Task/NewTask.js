@@ -1,33 +1,23 @@
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
-import { useQuery } from 'react-query';
 
 import Button from '../Button';
 
 import './style.scss';
+import useAppStore from '../../store';
+import useApi from '../../services/api';
 
 function NewTask() {
   const { register, handleSubmit } = useForm();
   const history = useHistory();
-  const envBaseUrl = process.env.REACT_APP_API_URL;
 
-  const { isLoading, error, data } = useQuery('repoData', () => fetch(`${envBaseUrl}/api/v1/users`).then((res) => res.json()));
+  const { users } = useAppStore();
+  const { createNewTask } = useApi();
 
   const onSubmit = (task) => {
-    fetch(`${envBaseUrl}/api/v1/tasks/${task.user}/new`, {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-      body: JSON.stringify(task),
-    }).then((res) => res.json());
-
+    createNewTask(task, task.user);
     history.push('/tasks');
   };
-
-  if (isLoading) return 'Loading...';
-
-  if (error) return `An error has occurred: ${error.message}`;
 
   return (
     <div>
@@ -39,7 +29,7 @@ function NewTask() {
           autoComplete="off"
           required
         >
-          {data.map((todo) => (
+          {users && users.map((todo) => (
             <option key={todo.id} {...register('user', { value: todo.id })}>{todo.name}</option>
           ))}
         </select>

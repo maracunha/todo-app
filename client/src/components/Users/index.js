@@ -1,33 +1,30 @@
-import { useQuery } from 'react-query';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import useApi from '../../services/api';
+import useAppStore from '../../store';
 
 function User() {
-  const envBaseUrl = process.env.REACT_APP_API_URL;
-
-  const { isLoading, error, data } = useQuery('repoData', () => fetch(`${envBaseUrl}/api/v1/users`).then((res) => res.json()));
-
-  if (isLoading) return 'Loading...';
-
-  if (error) return `An error has occurred: ${error.message}`;
+  const { deleteUser } = useApi();
+  const { users } = useAppStore();
+  const [usersStore, setUsersStore] = useState([]);
 
   function handleDelete(id) {
-    fetch(`${envBaseUrl}/api/v1/users/${id}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    }).then((res) => console.log(res.json()));
+    deleteUser(id);
   }
+
+  useEffect(() => {
+    setUsersStore(users);
+  }, [users]);
 
   return (
     <div className="contente">
-      {data.map((todo) => (
-        <div className="user" id={todo.id}>
+      {usersStore && usersStore.map((user) => (
+        <div className="user" id={user.id} key={user.id}>
           <Link
             className="edit"
             to={{
               pathname: '/edit/user',
-              state: { todo },
+              state: { user },
             }}
           >
             ✍️
@@ -36,20 +33,20 @@ function User() {
           <div>
             <Link to={{
               pathname: '/tasks',
-              hash: `#${todo.id}`,
+              hash: `#${user.id}`,
             }}
             >
               👀
               {' '}
-              {todo.name}
+              {user.name}
 
             </Link>
             <p>
               ✉️
-              {todo.email}
+              {user.email}
             </p>
           </div>
-          <button type="button" onClick={() => handleDelete(todo.id)}>
+          <button type="button" onClick={() => handleDelete(user.id)}>
             🧨
             <span className="tooltip">delete</span>
           </button>

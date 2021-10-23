@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { useHistory, useLocation } from 'react-router-dom';
+import useApi from '../../services/api';
 
 import Button from '../Button';
 
@@ -7,6 +8,7 @@ function EditUser() {
   const { register, handleSubmit } = useForm();
   const history = useHistory();
   const location = useLocation();
+  const { updateUser } = useApi();
 
   const {
     state: {
@@ -19,13 +21,7 @@ function EditUser() {
   } = location;
 
   const onSubmit = (user) => {
-    fetch(`http://localhost:4000/api/v1/users/${id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-      body: JSON.stringify(user),
-    }).then((res) => res.json());
+    updateUser(user, id);
 
     history.push('/users');
   };

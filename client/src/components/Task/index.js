@@ -1,41 +1,30 @@
-import { useQuery } from 'react-query';
-
 import './style.scss';
 import checkImg from '../../assets/check.svg';
 import deleteImg from '../../assets/delete.svg';
+import { useTasks } from '../../services/queries';
+import useApi from '../../services/api';
+
+function getUserId() {
+  const hash = /\d+$/.exec(window.location.href);
+  const userId = hash && hash[0];
+  return userId || 'new';
+}
 
 function Task() {
-  const envBaseUrl = process.env.REACT_APP_API_URL;
-
-  function getUserId() {
-    const hash = /\d$/.exec(window.location.href);
-    const userId = hash && hash[0];
-
-    return userId || 'new';
-  }
-
   const userId = getUserId();
+  const { dotoDone } = useApi();
 
-  const { isLoading, error, data } = useQuery('repoData', () => fetch(`${envBaseUrl}/api/v1/tasks/${userId}`).then((res) => res.json()));
+  const { isLoading, error, data } = useTasks(userId);
 
   const handleDone = (task) => {
     if (window.confirm(`Are you sure to change from ${task.state} ?`)) {
-      fetch(`${envBaseUrl}/api/v1/tasks/${userId}/${task.id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-type': 'application/json; charset=UTF-8',
-        },
-        body: JSON.stringify({
-          ...task,
-          state: task.state === 'done' ? 'todo' : 'done',
-        }),
-      });
+      dotoDone(task, userId, task.id);
     }
   };
 
   const handleDelete = (id) => {
     if (window.confirm('Are you sure to delete ?')) {
-      // console.log(id)
+      console.log(id);
     }
   };
 
@@ -53,7 +42,7 @@ function Task() {
       </h1>
       )}
       <div className="tasks">
-        {data?.map((task) => (
+        {data.data?.map((task) => (
           <div id={task.id}>
             <header>
               <span>
