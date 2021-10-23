@@ -35,20 +35,20 @@ router.post('/new', async (req, res, next) => {
       throw error;
     }
 
-    const createResult = await User.create(createUser)
+    const createResult = await User.create(createUser);
 
     // const createResult = await User.sync().then( () => {
     //   return User.create(createUser)
     // });
-     
+
     const payload = {
       id: createResult.id,
       name,
       email,
     };
-  
+
     res.json({
-      user: payload
+      user: payload,
     });
   } catch (error) {
     next(error);
@@ -69,21 +69,21 @@ router.put('/:id', async (req, res, next) => {
       res.status(404);
       throw error;
     }
-    
+
     const updateResult = await User.update(updateUser, {
       where: {
-        id: req.params.id
-      }
+        id: req.params.id,
+      },
     });
-     
+
     const payload = {
       id: updateResult.id,
       name,
       email,
     };
-  
+
     res.json({
-      user: payload
+      user: payload,
     });
   } catch (error) {
     next(error);
@@ -91,7 +91,6 @@ router.put('/:id', async (req, res, next) => {
 });
 
 router.delete('/:id', async (req, res, next) => {
-  
   try {
     const user = await User.findByPk(req.params.id);
     if (!user) {
@@ -99,11 +98,11 @@ router.delete('/:id', async (req, res, next) => {
       res.status(404);
       throw error;
     }
-    
+
     user.destroy();
-  
+
     res.json({
-      user: 'user has been deleted'
+      user: 'user has been deleted',
     });
   } catch (error) {
     next(error);

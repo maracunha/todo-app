@@ -14,8 +14,7 @@ function notFound(req, res, next) {
 }
 
 function errorHandler(error, req, res, next) {
-  const statusCode =
-    res.statusCode === 200 ? errorTypes[error.name] || 500 : res.statusCode;
+  const statusCode = res.statusCode === 200 ? errorTypes[error.name] || 500 : res.statusCode;
   res.status(statusCode);
   res.json({
     status: statusCode,
