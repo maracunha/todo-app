@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import useApi from '../../services/api';
 import useAppStore from '../../store';
 
-function User() {
+function User({ isLoading }) {
   const { deleteUser } = useApi();
   const { users } = useAppStore();
   const [usersStore, setUsersStore] = useState([]);
@@ -15,6 +15,8 @@ function User() {
   useEffect(() => {
     setUsersStore(users);
   }, [users]);
+
+  if (isLoading) { return 'Loading...'; }
 
   return (
     <div className="contente">

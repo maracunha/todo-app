@@ -19,8 +19,6 @@ function App() {
     setUsers(data?.data);
   }, [data]);
 
-  if (isLoading) { return 'Loading...'; }
-
   if (error) { return `An error has occurred: ${error.message}`; }
 
   return (
@@ -28,7 +26,7 @@ function App() {
       <Header />
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/users" component={Users} />
+        <Route path="/users" render={() => (<Users isLoading={isLoading} />)} />
         <Route path="/new/user" component={NewUser} />
         <Route path="/edit/user" component={EditUser} />
         <Route path="/tasks" component={Tasks} />
