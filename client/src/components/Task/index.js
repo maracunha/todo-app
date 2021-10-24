@@ -3,6 +3,7 @@ import checkImg from '../../assets/check.svg';
 import deleteImg from '../../assets/delete.svg';
 import { useTasks } from '../../services/queries';
 import useApi from '../../services/api';
+import useAppStore from '../../store';
 
 function getUserId() {
   const hash = /\d+$/.exec(window.location.href);
@@ -13,8 +14,10 @@ function getUserId() {
 function Task() {
   const userId = getUserId();
   const { todoDone } = useApi();
-
+  const { users } = useAppStore();
   const { isLoading, error, data } = useTasks(userId);
+
+  const userSelected = users?.find((user) => user.id === +userId) || [];
 
   const handleDone = (task) => {
     if (window.confirm(`Are you sure to change from ${task.state} ?`)) {
@@ -34,15 +37,9 @@ function Task() {
 
   return (
     <>
-      {userId && (
-      <h1 className="title">
-        User
-        {' '}
-        {userId}
-      </h1>
-      )}
+      <h1 className="title">{userSelected.name}</h1>
       <div className="tasks">
-        {data.data?.map((task) => (
+        {data?.data.length ? data.data.map((task) => (
           <div id={task.id}>
             <header>
               <span>
@@ -73,7 +70,7 @@ function Task() {
               </button>
             </footer>
           </div>
-        ))}
+        )) : <span className="empty-tasks">Nothing on this user. Make a new task</span>}
       </div>
     </>
   );
