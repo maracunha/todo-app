@@ -16,7 +16,7 @@ function NewTask() {
 
   const onSubmit = (task) => {
     createNewTask(task, task.user);
-    history.push('/tasks');
+    history.push(`/tasks/${task.user}`);
   };
 
   return (
