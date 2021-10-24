@@ -18,7 +18,7 @@ const useApi = () => {
     deleteUser: (id) => axiosInstance.delete(`/users/${id}`),
 
     getTasks: (userId) => axiosInstance.get(`/tasks/${userId}`),
-    dotoDone: (body, userId, taskId) => axiosInstance.post(`/tasks/${userId}/${taskId}}`, body),
+    todoDone: (body, userId, taskId) => axiosInstance.post(`/tasks/${userId}/${taskId}}`, body),
     createNewTask: (body, userId) => axiosInstance.post(`/tasks/${userId}/new`, body),
     updateTask: (body, id) => axiosInstance.put(`/tasks/${id}`, body),
   };

@@ -12,13 +12,13 @@ function getUserId() {
 
 function Task() {
   const userId = getUserId();
-  const { dotoDone } = useApi();
+  const { todoDone } = useApi();
 
   const { isLoading, error, data } = useTasks(userId);
 
   const handleDone = (task) => {
     if (window.confirm(`Are you sure to change from ${task.state} ?`)) {
-      dotoDone(task, userId, task.id);
+      todoDone(task, userId, task.id);
     }
   };
 
