@@ -19,7 +19,7 @@ npm run dev
 Finally, the application will be available at `http://localhost:3000`
 
 ## 🪴 Live
-Can view live on: https://mystifying-hodgkin-6d03c9.netlify.app/
+You can view demo live on: [todo-app](https://mystifying-hodgkin-6d03c9.netlify.app/)
 
 server: github actions to do build and deploy on heroku
 
