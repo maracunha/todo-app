@@ -15,8 +15,9 @@ function NewTask() {
   const { createNewTask } = useApi();
 
   const onSubmit = (task) => {
-    createNewTask(task, task.user);
-    history.push(`/tasks/${task.user}`);
+    const userSelected = users.find((user) => user.name === task.user);
+    createNewTask(task, userSelected.id);
+    history.push(`/tasks/${userSelected.id}`);
   };
 
   return (
@@ -30,7 +31,7 @@ function NewTask() {
           required
         >
           {users && users.map((todo) => (
-            <option key={todo.id} {...register('user', { value: todo.id })}>{todo.name}</option>
+            <option key={todo.id} {...register('user')}>{todo.name}</option>
           ))}
         </select>
         <input
