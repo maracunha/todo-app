@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import './style.scss';
 import checkImg from '../../assets/check.svg';
 import deleteImg from '../../assets/delete.svg';
