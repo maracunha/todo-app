@@ -7,26 +7,23 @@
 ## 🚀 How to run
 
 - Clone the repository
-- Run `npm run setup` to download all dependencies
-- Run `npm run dev` to start the application.
+- To download all dependencies
+```shell
+npm run setup
+```
+- To start application on dev mode.
+```shell
+npm run dev
+```
 
 Finally, the application will be available at `http://localhost:3000`
 
-## 🎩 TODO
+## 🪴 Live
+Can view live on: https://mystifying-hodgkin-6d03c9.netlify.app/
 
-- [ x ] style create new user
-- [ x ] style new task
-- [ x ] style tasks
-- [ x ] select if is todo or done a task
-- [ x ] style tasks more nice
-- [ x ] put on a single rep
-- [ x ] deploy on a client
-- [ ] deploy on a server
-- [ ] conf cors server
-- [ ] configuration eslint
-- [ ] configuration tests jest/cypress
-- [ ] modal for excludes task
-- [ ] delete a task / backend Too
+server: github actions to do build and deploy on heroku
+
+cliente: deploy on netlify
 
 ---
 ## 📄 License
