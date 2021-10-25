@@ -25,6 +25,28 @@ server: github actions to do build and deploy on heroku
 
 cliente: deploy on netlify
 
+## 🎩 TODO
+
+- [ x ] style create new user
+- [ x ] style new task
+- [ x ] style tasks
+- [ x ] select if is todo or done a task
+- [ x ] style tasks more nice
+- [ x ] put on a single rep
+- [ x ] deploy on a client
+- [ x ] deploy on a server
+- [ x ] conf cors server ?? works ;) 
+- [ x ] configuration eslint
+- [ x ] Reload page on new user
+- [ x ] reorder api query. 
+- [ x ] Reload page on new tasks
+- [ x ] user name on task
+- [ x ] empty page for user task
+- [ ] inicialize with some value
+- [ ] configuration tests
+- [ ] modal for excludes task
+- [ ] delete a task / backend Too
+
 ---
 ## 📄 License
 
