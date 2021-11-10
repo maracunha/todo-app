@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "",
-    "test": "",
+    "test": "scripty",
     "dev": "npm run start:dev",
     "start": "node server/src/index.js",
     "start:dev": "scripty",
@@ -34,6 +34,8 @@
   "devDependencies": {
     "as-a": "^1.4.1",
     "concurrently": "^6.3.0",
+    "eslint-plugin-jest": "^25.2.4",
+    "jest": "^27.3.1",
     "nodemon": "^2.0.13",
     "rimraf": "^3.0.2",
     "scripty": "^2.0.0"

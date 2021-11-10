@@ -5,9 +5,8 @@
   "author": "Renan Marangon",
   "license": "MIT",
   "dependencies": {
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "@testing-library/jest-dom": "^5.15.0",
     "axios": "^0.23.0",
     "node-sass": "^6.0.1",
     "react": "^17.0.2",
@@ -19,6 +18,7 @@
     "zustand": "^3.6.0"
   },
   "scripts": {
+    "test": "react-scripts test",
     "start": "react-scripts start",
     "dev": "react-scripts start",
     "build": "react-scripts build"
@@ -42,9 +42,15 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "@babel/preset-react": "^7.16.0",
+    "@testing-library/react": "^12.1.2",
+    "babel-jest": "^27.3.1",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-jest": "^24.7.0",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.26.1",
     "eslint-plugin-react-hooks": "^4.2.0"

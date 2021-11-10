@@ -43,9 +43,12 @@ cliente: deploy on netlify
 - [ x ] user name on task
 - [ x ] empty page for user task
 - [ ] inicialize with some value
-- [ ] configuration tests
+- [ x ] configuration tests
 - [ ] modal for excludes task
 - [ ] delete a task / backend Too
+- [ ] create tests jest/e2e
+- [ ] insert block diagram 
+
 
 ---
 ## 📄 License
