@@ -18,6 +18,17 @@ npm run dev
 
 Finally, the application will be available at `http://localhost:3000`
 
+## 🧪 How to test
+
+- To test server
+```shell
+npm run test:server
+```
+- To test client
+```shell
+npm run test:client
+```
+
 ## 🪴 Live
 You can view demo live on: [todo-app](https://mystifying-hodgkin-6d03c9.netlify.app/)
 
